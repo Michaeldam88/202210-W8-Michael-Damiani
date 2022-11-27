@@ -47,13 +47,13 @@ img {
 .series-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 .serie {
     width: 24%;
     height: 422px;
     margin-bottom: 20px;
     position: relative;
+    margin-right: 1rem;
 }
 .serie .icon--delete {
     position: absolute;
