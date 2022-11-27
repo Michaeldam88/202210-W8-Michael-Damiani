@@ -2,6 +2,9 @@
 
 # Week 8
 
+Netlify: https://mytvseries.netlify.app/
+Sonar: https://sonarcloud.io/project/overview?id=Michaeldam88_202210-W8-Michael-Damiani
+
 Aquí tienes una aplicación maquetada con HTML y CSS. Se trata de una aplicación que gestiona un listado de series, separándolas entre series vistas y no vistas.
 
 Esta aplicación se alimentará de un objeto JS que tienes en el archivo series.js.
