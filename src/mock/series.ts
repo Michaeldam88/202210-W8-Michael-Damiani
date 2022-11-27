@@ -1,4 +1,4 @@
-const series = [
+const seriesList = [
     {
         id: 1,
         name: 'The Sopranos',
@@ -6,8 +6,8 @@ const series = [
         year: 1999,
         poster: 'https://m.media-amazon.com/images/M/MV5BZGJjYzhjYTYtMDBjYy00OWU1LTg5OTYtNmYwOTZmZjE3ZDdhXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg',
         watched: true,
-        score: 5,
-        emmies: 21,
+        score: 4,
+        eliminated: false,
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const series = [
         poster: 'https://t1.pixers.pics/img-1fb6f67c/posters-game-of-thrones.jpg?H4sIAAAAAAAAA3VOW27EIAy8DpGS2BAIkBvs394gIjy2afNAQNtVT1_Sqp-VZXs80ngG3o9sggfrj-IT7Ktzm4ewbvXKU_J5_fJkUGOLzVTZjSBWdH74ZNMZSUcH1VLRCsbaUYpm-jRVuJv0Rl5KiXkCyEMf12f9VpfNYPcMDKkEVCC00lpYzh1aN8cuF3M4k1zH8TliH49Hi1c1f0EkYiuvACWtO6mJzupVyGt8NPCP3y-GqoL7DSgCsp-JwNnFzvcbRWS1kbNZuEELHox0izdBeoUYLBVej9qZEMIsFmmWRY7Kec_n_hu83S9APwEAAA==',
         watched: false,
         score: 0,
-        emmies: 164,
+        eliminated: false,
     },
     {
         id: 3,
@@ -27,7 +27,7 @@ const series = [
         poster: 'https://pics.filmaffinity.com/Mad_Men_Serie_de_TV-351490728-large.jpg',
         watched: true,
         score: 5,
-        emmies: 116,
+        eliminated: false,
     },
     {
         id: 4,
@@ -36,17 +36,19 @@ const series = [
         year: 2001,
         poster: 'https://www.cine.com/media/series/2711.jpg',
         watched: true,
-        score: 5,
-        emmies: 53,
+        score: 3,
+        eliminated: false,
     },
     {
         id: 5,
         name: 'Atypical',
         creator: 'Robia Rashid',
         year: 2017,
-        poster: 'https://www.cine.com/media/series/2711.jpg',
+        poster: 'https://pics.filmaffinity.com/atypical-405052091-mmed.jpg',
         watched: false,
         score: 0,
-        emmies: 0,
+        eliminated: false,
     },
 ];
+
+export const startingData = () => seriesList;
