@@ -32,6 +32,12 @@ export abstract class Injection {
         return this.injectionPoint;
     }
 
+    protected deleteHtml(selector: string) {
+        this.injectionPoint = this.selectElement(selector);
+        this.injectionPoint.remove();
+        return this.injectionPoint;
+    }
+
     render() {
         return this.injectionPoint;
     }
