@@ -21,6 +21,17 @@ export abstract class Injection {
         return e;
     }
 
+    protected innRenderReplacer(selector: string) {
+        try {
+            this.injectionPoint = this.selectElement(selector);
+            this.injectionPoint.innerHTML = this.template;
+        } catch (error) {
+            this.injectionPoint = null;
+        }
+
+        return this.injectionPoint;
+    }
+
     render() {
         return this.injectionPoint;
     }
