@@ -77,7 +77,7 @@ img {
 .score {
     display: flex;
 }
-.series-list--watched .icon--score {
+.series-list--pending .icon--score {
     cursor: pointer;
 }
 .ranking-list {

@@ -1,4 +1,4 @@
-const seriesList = [
+export const seriesList = [
     {
         id: 1,
         name: 'The Sopranos',
@@ -51,4 +51,4 @@ const seriesList = [
     },
 ];
 
-export const startingData = () => seriesList;
+export const startingData = () => seriesList.filter(element => element.eliminated === false);

@@ -1,5 +1,6 @@
 import { startingData } from '../../mock/series.js';
 import { FilmCardType } from '../../models/filmCard.js';
+import { DeleteFilm } from '../deleteFilm/deleteFilm.js';
 import { FilmTemplate } from '../filmTemplate/filmTemplate.js';
 import { Injection } from '../injection/injection.js';
 import { UpdateNum } from '../updateNumberWatched/updateNumWatched.js';
@@ -32,17 +33,18 @@ export class FilmRender extends Injection {
                 stars[i].classList.remove('far');
                 stars[i].classList.add('fas');
             }
-
-            //activa el botón de borrar
-            const deleteButton = document.querySelector(
-                `#film_${element.id} .icon--delete`
-            );
-            deleteButton?.addEventListener('click', () =>
-                this.deleteHtml(`#film_${element.id}`)
-            );
-
         });
         //actualiza los numeros de las series vistas
         new UpdateNum();
+
+        //activa el botón de borrar
+        const deleteButton = document.querySelectorAll(`.icon--delete`);
+
+        deleteButton.forEach((element) => {
+            element.addEventListener(
+                'click',
+                (event) => new DeleteFilm(`#${event.target.parentElement.id}`)
+            );
+        });
     }
 }
