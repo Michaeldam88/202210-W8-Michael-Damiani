@@ -2,7 +2,7 @@ export abstract class Injection {
     template!: string;
     injectionPoint!: Element | null;
 
-    innRender(selector: string) {
+    protected innRender(selector: string) {
         try {
             this.injectionPoint = this.selectElement(selector);
             this.injectionPoint.innerHTML += this.template;
@@ -13,12 +13,23 @@ export abstract class Injection {
         return this.injectionPoint;
     }
 
-    selectElement(selector: string) {
+    private selectElement(selector: string) {
         const error = new Error('Invalid selector');
         if (!selector) throw error;
         const e = document.querySelector(selector);
         if (e === null) throw error;
         return e;
+    }
+
+    protected innRenderReplacer(selector: string) {
+        try {
+            this.injectionPoint = this.selectElement(selector);
+            this.injectionPoint.innerHTML = this.template;
+        } catch (error) {
+            this.injectionPoint = null;
+        }
+
+        return this.injectionPoint;
     }
 
     render() {
