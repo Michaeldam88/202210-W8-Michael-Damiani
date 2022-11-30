@@ -37,10 +37,10 @@ export class FilmRender extends Injection {
             //activa la puntuación de las estrellas
             const stars = document.querySelectorAll(`.icon--score`);
 
-            const scoreReader = function (event:Event) {
-                const scoreValue = this.getAttribute('title');
-                const id = event.path[3].id;
-                new ScoreUpdate(id, scoreValue)
+            const scoreReader = function (this: Element, event: any) {
+                const scoreValue: string | null = this.getAttribute('title');
+                const id: string = event.path[3].id;
+                new ScoreUpdate(id, scoreValue);
             };
 
             stars.forEach((element) =>
@@ -56,7 +56,8 @@ export class FilmRender extends Injection {
         deleteButton.forEach((element) => {
             element.addEventListener(
                 'click',
-                (event) => new DeleteFilm(`#${event.target.parentElement.id}`)
+                (event: any) =>
+                    new DeleteFilm(`#${event.target.parentElement.id}`)
             );
         });
     }
