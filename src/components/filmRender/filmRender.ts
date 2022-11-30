@@ -3,6 +3,7 @@ import { FilmCardType } from '../../models/filmCard.js';
 import { DeleteFilm } from '../deleteFilm/deleteFilm.js';
 import { FilmTemplate } from '../filmTemplate/filmTemplate.js';
 import { Injection } from '../injection/injection.js';
+import { ScoreUpdate } from '../scoreUpdate/scoreUpdate.js';
 import { UpdateNum } from '../updateNumberWatched/updateNumWatched.js';
 
 export class FilmRender extends Injection {
@@ -26,13 +27,25 @@ export class FilmRender extends Injection {
 
             //renderiza los colores de las estrellas
             const score = element.score;
-            const stars = document.querySelectorAll(
-                `#film_${element.id} .score__star i`
+            const starBlock = document.querySelectorAll(
+                `#film_${element.id} .icon--score`
             );
             for (let i = 0; i < score; i++) {
-                stars[i].classList.remove('far');
-                stars[i].classList.add('fas');
+                starBlock[i].classList.remove('far');
+                starBlock[i].classList.add('fas');
             }
+            //activa la puntuación de las estrellas
+            const stars = document.querySelectorAll(`.icon--score`);
+
+            const scoreReader = function (this: Element, event: any) {
+                const scoreValue: string | null = this.getAttribute('title');
+                const id: string = event.path[3].id;
+                new ScoreUpdate(id, scoreValue);
+            };
+
+            stars.forEach((element) =>
+                element.addEventListener('click', scoreReader)
+            );
         });
         //actualiza los numeros de las series vistas
         new UpdateNum();
@@ -43,7 +56,8 @@ export class FilmRender extends Injection {
         deleteButton.forEach((element) => {
             element.addEventListener(
                 'click',
-                (event) => new DeleteFilm(`#${event.target.parentElement.id}`)
+                (event: any) =>
+                    new DeleteFilm(`#${event.target.parentElement.id}`)
             );
         });
     }
